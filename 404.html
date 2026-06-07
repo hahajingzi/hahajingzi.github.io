@@ -50,7 +50,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-05-31 15:54:11'
+  postUpdate: '2026-06-07 17:39:50'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -144,41 +144,35 @@
     }
     detectApple()
     })(window)</script><style>
-
+/* 侧边广告图片统一样式 */
 .side-ad img {
-    width: 200px;      /* 自定义宽度 */
-    height: auto;      /* 高度自适应 */
-    object-fit: cover; /* 保持比例填充容器 */
-  }
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
 
-
-  .side-ad {
+/* 单个广告盒子：左右悬浮居中 */
+.side-ad {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
     z-index: 100;
-    max-width: 200px; /* 限制最大宽度等于图片宽度 */   
+    width: 200px;
     pointer-events: auto;
-  }
+    opacity: 1;
+    transition: opacity 0.3s ease; /* 淡出过渡 */
+}
+.left-ad { left: 100px; }
+.right-ad { right: 100px; }
 
-  .left-ad { left: 100px; 
-    max-width: calc(100vw - 40px); /* 确保不超出视口宽度 */
-  }
-  .right-ad { right: 100px; 
-    max-width: calc(100vw - 40px); /* 确保不超出视口宽度 */
-  }
-  
-  .side-ad-container {
-position: fixed;
-top: 50%;
-transform: translateY(-50%);
-left: 0;
-right: 0;
-pointer-events: none;
-  }
+/* 外层空容器仅占位，无需定位样式，删除冗余fixed代码 */
+.side-ad-container {
+  pointer-events: none;
+}
 
-  /* 关闭按钮样式 */
-  .close-ad-btn {
+/* 关闭按钮 */
+.close-ad-btn {
     position: absolute;
     top: -10px;
     right: -10px;
@@ -193,57 +187,73 @@ pointer-events: none;
     cursor: pointer;
     z-index: 101;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-    color: #000; /* 确保默认是黑色 */
-  }
-  .close-ad-btn:hover {
+    transition: all 0.3s ease;
+    color: #000;
+    user-select: none; /* 禁止选中×文字 */
+}
+.close-ad-btn:hover {
     background: #f0f0f0;
     transform: rotate(90deg);
-  }
+}
 
-
-  /* 暗黑模式适配 */
-  [data-theme="dark"] .close-ad-btn {
-    color: #e0e0e0 !important; /* 浅灰色叉号 */
-    background: #2d2d2d; /* 深灰背景 */
-    border-color: #555; /* 深色边框 */
-  }
-  [data-theme="dark"] .close-ad-btn:hover {
+/* 暗黑模式 */
+[data-theme="dark"] .close-ad-btn {
+    color: #e0e0e0;
+    background: #2d2d2d;
+    border-color: #555;
+}
+[data-theme="dark"] .close-ad-btn:hover {
     background: #3a3a3a;
-    color: #fff !important;
-  }
+    color: #fff;
+}
 
-  @media (max-width: 1300px) {
-    .side-ad { display: none; }
-  }
+/* 屏幕小于1300px自动隐藏广告 */
+@media (max-width: 1300px) {
+    .side-ad { display: none !important; }
+}
 </style>
-<link rel="stylesheet" href="/css/custom.css""><link rel="stylesheet" href="https://npm.elemecdn.com/qweather-icons@1.1.1/font/qweather-icons.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@latest/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="缘之空" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://npm.elemecdn.com/picbox@1.0.24/image/01-50/01/kapai.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw fas fa-home faa-tada"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://fengyueai.fun?ref_id=664f8d5e-c915-4a69-bf06-3db968c1fe69/"><i class="fa-fw fas fa-archive faa-tada"></i><span> Ai女友💋</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://jolly-custard-fd57c1.netlify.app/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/galgame/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> galgame</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E7%BB%85%E5%A3%AB%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 绅士游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://yuansky.xyz/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 主机游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/%E6%89%8B%E6%9C%BA%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 手机游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E8%A7%86%E9%A2%91%E6%BC%AB%E7%94%BB/"><i class="fa-fw fas fa-image faa-tada"></i><span> 视频漫画</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"><i class="fa-fw fas fa-book-open faa-tada"></i><span> 安装教程</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://sway.cloud.microsoft/aX0P4AGt68x9AnQ1"><i class="fa-fw fas fa-book-open faa-tada"></i><span> 永久发布页</span></a></div></div></div></div><div class="error" id="body-wrap"><div style="display: none"><header class="not-top-img" id="page-header" style="background-image: url('https://npm.elemecdn.com/anzhiyu-blog@latest/img/post/common/page-404.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">缘之空</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw fas fa-home faa-tada"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://fengyueai.fun?ref_id=664f8d5e-c915-4a69-bf06-3db968c1fe69/"><i class="fa-fw fas fa-archive faa-tada"></i><span> Ai女友💋</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://jolly-custard-fd57c1.netlify.app/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/galgame/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> galgame</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E7%BB%85%E5%A3%AB%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 绅士游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://yuansky.xyz/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 主机游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/%E6%89%8B%E6%9C%BA%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 手机游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E8%A7%86%E9%A2%91%E6%BC%AB%E7%94%BB/"><i class="fa-fw fas fa-image faa-tada"></i><span> 视频漫画</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"><i class="fa-fw fas fa-book-open faa-tada"></i><span> 安装教程</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://sway.cloud.microsoft/aX0P4AGt68x9AnQ1"><i class="fa-fw fas fa-book-open faa-tada"></i><span> 永久发布页</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header></div><div id="error-wrap"><div class="error-content"><div class="error-img" style="background-image: url('https://npm.elemecdn.com/anzhiyu-blog@latest/img/post/common/page-404.png')"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">Page Not Found</div><a class="button--animated" href="/"><i class="fas fa-rocket"></i>返回主页</a></div></div></div><div class="aside-list"><div class="aside-list-group"><div class="aside-list-item"><a class="thumbnail" href="/posts/z1232.html" title="【电脑游戏】辐射4 官方简体中文绅士整合版【256G】"><img src="https://image.acg.lol/file/2026/05/29/001b7830a970cea5694.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【电脑游戏】辐射4 官方简体中文绅士整合版【256G】"></a><div class="content"><a class="title" href="/posts/z1232.html" title="【电脑游戏】辐射4 官方简体中文绅士整合版【256G】">【电脑游戏】辐射4 官方简体中文绅士整合版【256G】</a><time datetime="2026-06-05T07:55:20.000Z" title="发表于 2026-06-05 15:55:20">2026-06-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/g4913.html" title="【GAL/AI汉化/漩涡社】Relirium-レリリウム-遺跡と出逢いと冒険と AI汉化电脑版【3.7G】"><img src="https://file.galpic.xyz/_300_cover/getchu/gc1358608.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【GAL/AI汉化/漩涡社】Relirium-レリリウム-遺跡と出逢いと冒険と AI汉化电脑版【3.7G】"></a><div class="content"><a class="title" href="/posts/g4913.html" title="【GAL/AI汉化/漩涡社】Relirium-レリリウム-遺跡と出逢いと冒険と AI汉化电脑版【3.7G】">【GAL/AI汉化/漩涡社】Relirium-レリリウム-遺跡と出逢いと冒険と AI汉化电脑版【3.7G】</a><time datetime="2026-06-05T06:51:32.000Z" title="发表于 2026-06-05 14:51:32">2026-06-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/g4076.html" title="【PC+KR/GAL/官中】纯情房东撬房客 纯情昼下がりのボロアパートと人妻たち 官中版 【2G】"><img src="https://www.imgccc.com/2026/05/30/f24e5e9019e95.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【PC+KR/GAL/官中】纯情房东撬房客 纯情昼下がりのボロアパートと人妻たち 官中版 【2G】"></a><div class="content"><a class="title" href="/posts/g4076.html" title="【PC+KR/GAL/官中】纯情房东撬房客 纯情昼下がりのボロアパートと人妻たち 官中版 【2G】">【PC+KR/GAL/官中】纯情房东撬房客 纯情昼下がりのボロアパートと人妻たち 官中版 【2G】</a><time datetime="2026-06-05T04:45:31.000Z" title="发表于 2026-06-05 12:45:31">2026-06-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/s1890.html" title="【精品SLG/官中/动态】边境小店NTR 官中步兵电脑版【1.5G】"><img src="https://image.acg.lol/file/2026/05/31/001d75173f2e70556af.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【精品SLG/官中/动态】边境小店NTR 官中步兵电脑版【1.5G】"></a><div class="content"><a class="title" href="/posts/s1890.html" title="【精品SLG/官中/动态】边境小店NTR 官中步兵电脑版【1.5G】">【精品SLG/官中/动态】边境小店NTR 官中步兵电脑版【1.5G】</a><time datetime="2026-06-04T03:51:32.000Z" title="发表于 2026-06-04 11:51:32">2026-06-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/s1889.html" title="【经营SLG/官中/动态】异世界NTR旅馆 v1.06 中文电脑版【3.7G】"><img src="https://image.acg.lol/file/2026/05/31/001c43818daa581981d.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【经营SLG/官中/动态】异世界NTR旅馆 v1.06 中文电脑版【3.7G】"></a><div class="content"><a class="title" href="/posts/s1889.html" title="【经营SLG/官中/动态】异世界NTR旅馆 v1.06 中文电脑版【3.7G】">【经营SLG/官中/动态】异世界NTR旅馆 v1.06 中文电脑版【3.7G】</a><time datetime="2026-06-04T03:51:32.000Z" title="发表于 2026-06-04 11:51:32">2026-06-04</time></div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="字符越少越容易搜索到" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://npm.elemecdn.com/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="side-ad-container">
+<link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://npm.elemecdn.com/qweather-icons@1.1.1/font/qweather-icons.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@latest/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="缘之空" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://npm.elemecdn.com/picbox@1.0.24/image/01-50/01/kapai.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4211</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw fas fa-home faa-tada"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://fengyueai.fun?ref_id=664f8d5e-c915-4a69-bf06-3db968c1fe69/"><i class="fa-fw fas fa-archive faa-tada"></i><span> Ai女友💋</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://jolly-custard-fd57c1.netlify.app/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/galgame/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> galgame</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E7%BB%85%E5%A3%AB%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 绅士游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://yuansky.xyz/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 主机游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/%E6%89%8B%E6%9C%BA%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 手机游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E8%A7%86%E9%A2%91%E6%BC%AB%E7%94%BB/"><i class="fa-fw fas fa-image faa-tada"></i><span> 视频漫画</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"><i class="fa-fw fas fa-book-open faa-tada"></i><span> 安装教程</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://sway.cloud.microsoft/aX0P4AGt68x9AnQ1"><i class="fa-fw fas fa-book-open faa-tada"></i><span> 永久发布页</span></a></div></div></div></div><div class="error" id="body-wrap"><div style="display: none"><header class="not-top-img" id="page-header" style="background-image: url('https://npm.elemecdn.com/anzhiyu-blog@latest/img/post/common/page-404.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">缘之空</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw fas fa-home faa-tada"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://fengyueai.fun?ref_id=664f8d5e-c915-4a69-bf06-3db968c1fe69/"><i class="fa-fw fas fa-archive faa-tada"></i><span> Ai女友💋</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://jolly-custard-fd57c1.netlify.app/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/galgame/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> galgame</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E7%BB%85%E5%A3%AB%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 绅士游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://yuansky.xyz/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 主机游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/%E6%89%8B%E6%9C%BA%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad faa-tada"></i><span> 手机游戏</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E8%A7%86%E9%A2%91%E6%BC%AB%E7%94%BB/"><i class="fa-fw fas fa-image faa-tada"></i><span> 视频漫画</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"><i class="fa-fw fas fa-book-open faa-tada"></i><span> 安装教程</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" target="_blank" rel="noopener" href="https://sway.cloud.microsoft/aX0P4AGt68x9AnQ1"><i class="fa-fw fas fa-book-open faa-tada"></i><span> 永久发布页</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header></div><div id="error-wrap"><div class="error-content"><div class="error-img" style="background-image: url('https://npm.elemecdn.com/anzhiyu-blog@latest/img/post/common/page-404.png')"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">Page Not Found</div><a class="button--animated" href="/"><i class="fas fa-rocket"></i>返回主页</a></div></div></div><div class="aside-list"><div class="aside-list-group"><div class="aside-list-item"><a class="thumbnail" href="/posts/s1897.html" title="【神作SLG/官中/动态】极道无赖EX:女警・鮎川光--从处女蜕变为变态的分岔路 官中电脑版【2.4G】"><img src="https://image.acg.lol/file/2026/06/05/001e4674d9bc1285ce0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【神作SLG/官中/动态】极道无赖EX:女警・鮎川光--从处女蜕变为变态的分岔路 官中电脑版【2.4G】"></a><div class="content"><a class="title" href="/posts/s1897.html" title="【神作SLG/官中/动态】极道无赖EX:女警・鮎川光--从处女蜕变为变态的分岔路 官中电脑版【2.4G】">【神作SLG/官中/动态】极道无赖EX:女警・鮎川光--从处女蜕变为变态的分岔路 官中电脑版【2.4G】</a><time datetime="2026-06-15T10:51:32.000Z" title="发表于 2026-06-15 18:51:32">2026-06-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/s1893.html" title="【触摸SLG/3D/汉化】追逐夏天的记忆なつのうしろで V1.2 AI汉化电脑版【4.2G】"><img src="https://file.galpic.xyz/_300_cover/dlsite/RJ01545000/RJ01544167_img_main.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【触摸SLG/3D/汉化】追逐夏天的记忆なつのうしろで V1.2 AI汉化电脑版【4.2G】"></a><div class="content"><a class="title" href="/posts/s1893.html" title="【触摸SLG/3D/汉化】追逐夏天的记忆なつのうしろで V1.2 AI汉化电脑版【4.2G】">【触摸SLG/3D/汉化】追逐夏天的记忆なつのうしろで V1.2 AI汉化电脑版【4.2G】</a><time datetime="2026-06-15T03:51:32.000Z" title="发表于 2026-06-15 11:51:32">2026-06-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6356.html" title="【3D同人/中文/动画】亲子教育：木村聡美和翔平中文版 赠蒂法+火影+火舞等5部【6.6G】"><img src="https://npm.elemecdn.com/tb201yuanzhik@1.0.0/001.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【3D同人/中文/动画】亲子教育：木村聡美和翔平中文版 赠蒂法+火影+火舞等5部【6.6G】"></a><div class="content"><a class="title" href="/posts/6356.html" title="【3D同人/中文/动画】亲子教育：木村聡美和翔平中文版 赠蒂法+火影+火舞等5部【6.6G】">【3D同人/中文/动画】亲子教育：木村聡美和翔平中文版 赠蒂法+火影+火舞等5部【6.6G】</a><time datetime="2026-06-15T02:38:54.000Z" title="发表于 2026-06-15 10:38:54">2026-06-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d1363.html" title="【PC+安卓/神作SLG/官中/动态】闭上眼睛 With Eyes Closed S1+S2 CH.10 官中版【16G】"><img src="https://www.imgccc.com/2026/06/01/5c9803b5faa30.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【PC+安卓/神作SLG/官中/动态】闭上眼睛 With Eyes Closed S1+S2 CH.10 官中版【16G】"></a><div class="content"><a class="title" href="/posts/d1363.html" title="【PC+安卓/神作SLG/官中/动态】闭上眼睛 With Eyes Closed S1+S2 CH.10 官中版【16G】">【PC+安卓/神作SLG/官中/动态】闭上眼睛 With Eyes Closed S1+S2 CH.10 官中版【16G】</a><time datetime="2026-06-14T10:28:30.000Z" title="发表于 2026-06-14 18:28:30">2026-06-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3207.html" title="【GAL/中文/A社】超昂天使エスカレイヤー・リブート 【电脑版/4G】"><img src="https://image.acg.lol/file/2026/06/06/006.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【GAL/中文/A社】超昂天使エスカレイヤー・リブート 【电脑版/4G】"></a><div class="content"><a class="title" href="/posts/3207.html" title="【GAL/中文/A社】超昂天使エスカレイヤー・リブート 【电脑版/4G】">【GAL/中文/A社】超昂天使エスカレイヤー・リブート 【电脑版/4G】</a><time datetime="2026-06-14T07:10:34.000Z" title="发表于 2026-06-14 15:10:34">2026-06-14</time></div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="字符越少越容易搜索到" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://npm.elemecdn.com/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="side-ad-container">
   <div class="side-ad left-ad">
     <span class="close-ad-btn" data-ad="left-ad">&times;</span>
     <a href="https://fengyueai.fun?ref_id=664f8d5e-c915-4a69-bf06-3db968c1fe69" target="_blank">
-      <img src="https://pub-197e0f22cc074a569b53a521b65036f1.r2.dev/200x750%E5%B7%A6(1).gif" alt="左侧广告">
+      <img src="https://pub-197e0f22cc074a569b53a521b65036f1.r2.dev/200x750GIF%E9%94%9B%E5%A0%9D%E4%B9%8F%E6%9D%88%E7%99%B8%E7%B4%9Agif.gif" alt="左侧广告">
     </a>
   </div>
   <div class="side-ad right-ad">
     <span class="close-ad-btn" data-ad="right-ad">&times;</span>
     <a href="https://fengyueai.fun?ref_id=664f8d5e-c915-4a69-bf06-3db968c1fe69" target="_blank">
-      <img src="https://pub-197e0f22cc074a569b53a521b65036f1.r2.dev/200x750%E5%8F%B3(1).gif" alt="右侧广告">
+      <img src="https://pub-197e0f22cc074a569b53a521b65036f1.r2.dev/200x750GIF%E9%94%9B%E5%A0%9D%E5%BD%B8%E6%9D%88%E7%99%B8%E7%B4%9A.gif" alt="右侧广告">
     </a>
   </div>
 </div>
 <script>
-  // 只保留关闭功能，移除localStorage相关代码
+// 页面初始化：读取本地存储，已关闭直接隐藏
+document.addEventListener('DOMContentLoaded', function(){
+  const leftClose = localStorage.getItem('close_left_ad') === '1';
+  const rightClose = localStorage.getItem('close_right_ad') === '1';
+  const leftDom = document.querySelector('.left-ad');
+  const rightDom = document.querySelector('.right-ad');
+
+  if(leftClose) leftDom.style.display = 'none';
+  if(rightClose) rightDom.style.display = 'none';
+
+  // 关闭按钮点击事件
   document.querySelectorAll('.close-ad-btn').forEach(btn => {
     btn.addEventListener('click', function() {
-      const adClass = this.getAttribute('data-ad');
-      const adElement = document.querySelector(`.${adClass}`);
-      adElement.style.opacity = '0';
+      const adClass = this.dataset.ad;
+      const adDom = document.querySelector(`.${adClass}`);
+      // 存入本地存储标记
+      if(adClass === 'left-ad') localStorage.setItem('close_left_ad','1');
+      if(adClass === 'right-ad') localStorage.setItem('close_right_ad','1');
+
+      adDom.style.opacity = '0';
       setTimeout(() => {
-        adElement.style.display = 'none';
+        adDom.style.display = 'none';
       }, 300);
-    });
-  });
+    })
+  })
+})
 </script>
 <script async src="/js/diytitle.js"></script><script async data-pjax src="/js/floatpanel.js"></script><script src="https://npm.elemecdn.com/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
 POWERMODE.shake = false;
@@ -378,31 +388,7 @@ document.getElementById('app-refresh').style.cssText = cssText
   else if (epage === cpage){
     butterfly_footer_beautify_injector_config();
   }
-  </script><script data-pjax>
-  function butterfly_swiper_injector_config(){
-    var parent_div_git = document.getElementById('recent-posts');
-    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper"><div class="blog-slider__item swiper-slide"><a class="blog-slider__img" href="https://1f7.tprevhxy.cc/?code=dneBJ&amp;c=33695" target="_blank" rel="noopener"><img src="https://unpkg.com/yuanzkongguanggao@1.0.0/03.webp" alt="广告描述"/></a></div><div class="blog-slider__item swiper-slide"><a class="blog-slider__img" href="https://liltpupu.top/#/register?code=uNgEcW54" target="_blank" rel="noopener"><img src="https://unpkg.com/yuanzkongguanggao@1.0.0/04.webp" alt="广告描述"/></a></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
-    console.log('已挂载butterfly_swiper')
-    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
-    }
-  var elist = 'undefined'.split(',');
-  var cpage = location.pathname;
-  var epage = '/';
-  var flag = 0;
-
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
-
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_swiper_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_swiper_injector_config();
-  }
-  </script><script defer src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+  </script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
 for(var i = 0;i<arr.length;i++){
     arr[i].classList.add('wow');
     arr[i].classList.add('animate__zoomIn');
@@ -458,4 +444,28 @@ for(var i = 0;i<arr.length;i++){
     arr[i].setAttribute('data-wow-delay', '');
     arr[i].setAttribute('data-wow-offset', '');
     arr[i].setAttribute('data-wow-iteration', '');
-  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="//at.alicdn.com/t/font_2508400_b89jnqce3q4.js"></script><!-- hexo injector body_end end --></body></html>
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper"><div class="blog-slider__item swiper-slide"><a class="blog-slider__img" href="https://1f7.tprevhxy.cc/?code=dneBJ&amp;c=33695" target="_blank" rel="noopener"><img src="https://unpkg.com/yuanzkongguanggao@1.0.0/03.webp" alt="广告描述"/></a></div><div class="blog-slider__item swiper-slide"><a class="blog-slider__img" href="https://liltpupu.top/#/register?code=uNgEcW54" target="_blank" rel="noopener"><img src="https://unpkg.com/yuanzkongguanggao@1.0.0/04.webp" alt="广告描述"/></a></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2508400_b89jnqce3q4.js"></script><!-- hexo injector body_end end --></body></html>
